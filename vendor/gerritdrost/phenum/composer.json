@@ -1,0 +1,29 @@
+{
+  "name": "gerritdrost/phenum",
+  "description": "Because PHP needs Enums",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gerrit Drost",
+      "email": "mail@gerritdrost.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.5.0",
+    "satooshi/php-coveralls": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "GerritDrost\\Lib\\Enum\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "GerritDrost\\Lib\\Enum\\": "tests/"
+    }
+  }
+}

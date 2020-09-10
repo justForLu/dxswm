@@ -1,0 +1,75 @@
+/*基础样式*/
+*{margin: 0px;padding: 0px;}
+.mt5{margin-top: 5px !important;}
+.mt10{margin-top: 10px !important;}
+.mt15{margin-top: 15px !important;}
+.mt20{margin-top: 20px !important;}
+
+.ml5{margin-left: 5px !important;}
+.ml10{margin-left: 10px !important;}
+.ml15{margin-left: 15px !important;}
+.ml20{margin-left: 20px !important;}
+
+.mr5{margin-right: 5px !important;}
+.mr10{margin-right: 10px !important;}
+.mr15{margin-right: 15px !important;}
+.mr20{margin-right: 20px !important;}
+
+.mb5{margin-bottom: 5px !important;}
+.mb10{margin-bottom: 10px !important;}
+.mb15{margin-bottom: 15px !important;}
+.mb20{margin-bottom: 20px !important;}
+
+.length0 {width: 20px;}
+.length1 {width: 50px;}
+.length2 {width: 110px;}
+.length3 {width: 170px;}
+.length4 {width: 230px;}
+.length5 {width: 290px;}
+.length6 {width: 350px;}
+
+.show{display: block;}
+.hide{display: none;}
+
+ul li,.ol li{list-style:none}
+
+/*登录样式*/
+.login-box{padding-top:140px;margin: 0 auto;height: 100%;background-color: #fff;}
+.login-logo{font-size: 16px;text-align: center;}
+.login-logo img{height: 80%;padding-top: 18px;}
+.login-form{position: relative;width: 360px;margin: auto;color: #76838f;}
+.login-item input{width: 100%;box-sizing: border-box;padding: 10px 18px;line-height: 25px;border: 1px solid #e4eaec;margin-bottom: 28px;border-radius: 3px;background-color: #fff;}
+.login-btn{width: 100%;height: 50px;line-height: 50px;text-align: center;font-size: 16px;color: #fff;border-radius: 3px;background-color: #2CB3E0;outline: none;border: none;cursor: pointer;letter-spacing: 10px;}
+
+.main-field{margin-top:20px;height: 30px;line-height: 30px;}
+.main-field-title{border:none;border-top:1px solid #e2e2e2;}
+.main-field-title legend{margin-left: 20px;padding: 0 10px;font-size: 20px;font-weight: 300;border-bottom: none;width: auto;}
+
+/*工具条样式*/
+.main-toolbar{text-align: right;margin-bottom: 10px;}
+.main-toolbar-item{display: inline-block;}
+
+.main-auth-table tbody tr td{text-align: left;vertical-align: middle;}
+.main-auth-table tbody tr td label.checkbox-active{color: #3d9970 !important;}
+.main-auth-table .auth-ul{text-align: left;margin: 0px;}
+.main-auth-table .auth-ul li{display: inline-block;width: 120px;}
+.main-auth-table .auth-ul li label{margin: 0px;}
+
+/*提示*/
+.tips{color:#999;font-size:12px}
+.fr{float: right;}
+.star-box img{width: 18px;height: 18px;}
+
+/*价格日历*/
+.pc-title {text-align: center;}
+.pc-table th{height: 20px;}
+.pc-table td{height: 30px;text-align: center;}
+.pc-split {border-bottom: 1px dashed #999;}
+.pc-date {text-align: right;width: 100%;font-size: 20px;font-weight: 100;}
+.pc-date-past {color: lightgray}
+.pc-today{background: #fffddf}
+.pc-show-changed {color: darkred}
+.pc-edit {display: none}
+.pc-edit input{height: 29px;text-align:center }
+.pc-order {font-size:14px;}
+
