@@ -7,12 +7,12 @@ namespace App\Enums;
  */
 class CategoryEnum extends BaseEnum {
 
-    const NEWS = 1;
-    const PRODUCT = 2;
+    const FOOD = 1;
+    const FRUITS = 2;
 
     static $desc = array(
-        'NEWS' => '新闻',
-        'PRODUCT' => '产品',
+        'FOOD' => '美食',
+        'FRUITS' => '水果',
     );
 
 }

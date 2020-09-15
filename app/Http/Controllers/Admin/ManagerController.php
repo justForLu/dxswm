@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\BoolEnum;
+use App\Enums\ManagerTypeEnum;
 use App\Enums\ModuleEnum;
 use App\Http\Requests\Admin\ManagerRequest;
 use App\Models\Admin\RoleUser;
@@ -89,6 +90,7 @@ class ManagerController extends BaseController
 
         DB::beginTransaction();
         $params['password'] = Hash::make($params['password']);
+        $params['type'] = ManagerTypeEnum::SYSTEM;
         $data = $this->manager->create($params);
 
         if($data){

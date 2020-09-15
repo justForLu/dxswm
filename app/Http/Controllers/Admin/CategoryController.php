@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\BasicEnum;
+use App\Enums\ManagerTypeEnum;
 use App\Http\Requests\Admin\CategoryRequest;
+use App\Models\Common\Business;
 use App\Repositories\Admin\Criteria\CategoryCriteria;
 use App\Repositories\Admin\CategoryRepository as Category;
 use App\Repositories\Admin\LogRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 
@@ -38,12 +42,22 @@ class CategoryController extends BaseController
 
         $list = $this->category->paginate(Config::get('admin.page_size',10));
 
-        //父级分类
-//        if($list){
-//            foreach ($list as &$v){
-//
-//            }
-//        }
+        if($list){
+            //处理店铺
+            $business_ids = [];
+            foreach ($list as $value){
+                $business_ids[] = $value['business_id'];
+            }
+            $business_ids = array_unique($business_ids);
+            $business_list = [];
+            if($business_ids){
+                $business_list = Business::whereIn('id',$business_ids)->pluck('name','id');
+            }
+            foreach ($list as &$v){
+                $v['business_name'] = isset($business_list[$v['business_id']]) ? $business_list[$v['business_id']] : $v['business_id'];
+            }
+        }
+
         return view('admin.category.index',compact('params','list'));
     }
 
@@ -69,12 +83,19 @@ class CategoryController extends BaseController
     {
         $params = $request->all();
 
+        $manager_type = Auth::user()->type;
+        if($manager_type != ManagerTypeEnum::BUSINESS){
+            return $this->ajaxError('只有店家管理员才能创建分类');
+        }
+        $business_id = session('business_id');
+
         $data = [
+            'business_id' => $business_id,
             'type' => $params['type'] ?? 0,
             'pid' => $params['pid'] ?? 0,
             'name' => $params['name'] ?? '',
             'sort' => $params['sort'] ?? 0,
-            'status' => $params['status'] ?? 1,
+            'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'create_time' => time()
         ];
 
@@ -124,7 +145,7 @@ class CategoryController extends BaseController
             'pid' => $params['pid'] ?? 0,
             'name' => $params['name'] ?? '',
             'sort' => $params['sort'] ?? 0,
-            'status' => $params['status'] ?? 1,
+            'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'update_time' => time()
         ];
 

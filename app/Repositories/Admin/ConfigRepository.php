@@ -8,7 +8,7 @@ class ConfigRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Config';
+        return 'App\Models\Common\Config';
     }
 
     /**

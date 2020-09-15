@@ -33,6 +33,8 @@
 
 ul li,.ol li{list-style:none}
 
+.red {color:red;padding-right: 3px;}
+
 /*登录样式*/
 .login-box{padding-top:140px;margin: 0 auto;height: 100%;background-color: #fff;}
 .login-logo{font-size: 16px;text-align: center;}

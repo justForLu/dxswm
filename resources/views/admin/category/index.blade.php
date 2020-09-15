@@ -17,7 +17,7 @@
                     <input type="text" name="name" autocomplete="off" class="form-control" placeholder="分类名称" value="{{ isset($params['name']) ?  $params['name'] : ''}}">
                 </div>
                 <div class="col-sm-2">
-                    {{\App\Enums\CategoryEnum::enumSelect(isset($params['type']) ?  $params['type'] : '',false,'type')}}
+                    {{\App\Enums\CategoryEnum::enumSelect(isset($params['type']) ?  $params['type'] : '','请选择分类','type')}}
                 </div>
                 <div class="col-sm-1">
                     <button type="submit" class="btn bg-olive">搜索</button>
@@ -32,6 +32,7 @@
             <th>ID</th>
             <th>分类类型</th>
             <th>分类名称</th>
+            <th>店家名称</th>
             <th>排序</th>
             <th>状态</th>
             <th>操作</th>
@@ -43,6 +44,7 @@
                 <td>{{$data->id}}</td>
                 <td>{{\App\Enums\CategoryEnum::getDesc($data->type)}}</td>
                 <td>{{$data->name}}</td>
+                <td>{{$data->business_name}}</td>
                 <td>{{$data->sort}}</td>
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>

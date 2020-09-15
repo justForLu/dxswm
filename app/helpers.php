@@ -225,3 +225,21 @@ if(!function_exists('check_email')) {
     }
 }
 
+if(!function_exists('set_index'))
+{
+    function set_index($array = [], $key = '', $key_val = '')
+    {
+        $result = [];
+        if (! $array || ! is_array($array) || ! $key) {
+            return $array;
+        }
+        foreach ($array as $val) {
+            if (isset($val[$key])) {
+                $result[$val[$key]] = $key_val ? $val[$key_val] : $val;
+            }
+        }
+
+        return $result ?? $array;
+    }
+}
+

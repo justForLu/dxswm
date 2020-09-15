@@ -11,7 +11,7 @@ class BasicEnum extends BaseEnum {
     const DISABLED = 2;
 
     static $desc = array(
-        'ACTIVE' => '启用',
+        'ACTIVE' => '正常',
         'DISABLED' => '禁用',
     );
 

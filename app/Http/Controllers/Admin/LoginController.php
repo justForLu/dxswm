@@ -2,8 +2,11 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Enums\ManagerTypeEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LoginRequest;
+use App\Models\Admin\RoleUser;
+use App\Models\Common\Business;
 use Illuminate\Http\Request;
 use App\Repositories\Admin\MenuRepository as Menu;
 use App\Services\TreeService;
@@ -95,6 +98,12 @@ class LoginController extends Controller
             $this->updateLoginInfo($loginRequest);
 
             session(['managerInfo' => Auth::user()]);
+
+            //店家id
+            if(Auth::user()->type == ManagerTypeEnum::BUSINESS){
+                $businessInfo = Business::select('id')->where('admin_id',Auth::user()->id)->first();
+                session(['business_id' => $businessInfo->id]);
+            }
 
             // 获取用户菜单
             $uid = Auth::user()->id;

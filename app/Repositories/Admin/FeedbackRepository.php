@@ -8,7 +8,7 @@ class FeedbackRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Feedback';
+        return 'App\Models\Common\Feedback';
     }
 
 }

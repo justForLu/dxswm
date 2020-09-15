@@ -14,15 +14,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">分类类型</label>
                             <div class="col-sm-8">
-                                {{\App\Enums\CategoryEnum::enumSelect(\App\Enums\CategoryEnum::NEWS,false,'type')}}
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">父级分类</label>
-                            <div class="col-sm-8">
-                                <select name="pid" class="form-control">
-                                    <option value="0">顶级分类</option>
-                                </select>
+                                {{\App\Enums\CategoryEnum::enumSelect(\App\Enums\CategoryEnum::FOOD,false,'type')}}
                             </div>
                         </div>
                         <div class="form-group">
@@ -59,37 +51,6 @@
         </div>
     </section>
 @endsection
-
-@section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var type = $("select[name='type']").val();
-            getCategory(type);
-        });
-        $("select[name='type']").change(function () {
-            var type = $(this).val();
-            getCategory(type);
-        });
-        function getCategory(type) {
-            $.get('/admin/category/getCategory/'+type, function (obj) {
-                if(obj.data){
-                    var cateList = obj.data;
-                    var html = "<option value='0'>顶级分类</option>";
-                    $.each(cateList, function (i1, cate1) {
-                        html += "<option value='"+cate1.id+"'>"+cate1.name+"</option>";
-                        if(cate1.children){
-                            $.each(cate1.children, function (i2, cate2) {
-                                html += "<option value='"+cate2.id+"'>"+cate2.name+"</option>";
-                            })
-                        }
-                    });
-                    $("select[name='pid']").html(html);
-                }
-            });
-        }
-    </script>
-@endsection
-
 
 
 

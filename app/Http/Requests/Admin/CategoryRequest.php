@@ -24,6 +24,7 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
+            'name' => 'required'
         ];
     }
 
@@ -33,6 +34,7 @@ class CategoryRequest extends Request
     public function messages()
     {
         return  [
+            'name.required' => '请填写分类名称'
         ];
     }
 
