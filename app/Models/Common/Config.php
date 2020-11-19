@@ -6,7 +6,7 @@ use App\Models\Base;
 
 class Config extends Base
 {
-    // 模型对应表名
+    // 配置
     protected $table = 'config';
 
     protected $fillable = ['id','title','copyright'];

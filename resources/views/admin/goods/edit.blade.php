@@ -71,6 +71,12 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">状态</label>
                             <div class="col-sm-8">
+                                {{\App\Enums\BoolEnum::enumRadio($data->is_recommend,false,'is_recommend')}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状态</label>
+                            <div class="col-sm-8">
                                 {{\App\Enums\GoodsEnum::enumSelect($data->status,false,'status')}}
                             </div>
                         </div>

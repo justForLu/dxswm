@@ -13,7 +13,8 @@ class Goods extends Base
     // 商品
     protected $table = 'goods';
 
-    protected $fillable = ['id','business_id','name','category_id','image','old_price','price','describe','number','score','sort','status'];
+    protected $fillable = ['id','business_id','name','category_id','image','old_price','price','describe','number','score',
+        'sort','status','is_recommend'];
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id');

@@ -79,6 +79,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="sort" class="col-sm-3 control-label"><span class="red">*</span>具体地址</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="sort" class="col-sm-3 control-label"><span class="red">*</span>经营时间范围</label>
                             <div class="col-sm-8">
                                 <input type="text" name="time_limit" class="form-control">

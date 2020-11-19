@@ -66,6 +66,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">是否首页推荐</label>
+                            <div class="col-sm-8">
+                                {{\App\Enums\BoolEnum::enumRadio(\App\Enums\BoolEnum::NO,false,'is_recommend')}}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">状态</label>
                             <div class="col-sm-8">
                                 {{\App\Enums\GoodsEnum::enumSelect(\App\Enums\GoodsEnum::ONSALE,false,'status')}}

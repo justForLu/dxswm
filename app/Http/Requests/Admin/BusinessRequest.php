@@ -35,17 +35,18 @@ class BusinessRequest extends Request
                 'city' => 'required',
                 'area' => 'required',
                 'school' => 'required',
+                'address' => 'required',
                 'time_limit' => 'required'
             ];
         }else{
             return [
-                'name' => 'required|unique:business,name,'.$this->id.'id',
                 'mobile' => 'required',
                 'image' => 'required',
                 'province' => 'required',
                 'city' => 'required',
                 'area' => 'required',
                 'school' => 'required',
+                'address' => 'required',
                 'time_limit' => 'required'
             ];
         }
@@ -69,6 +70,7 @@ class BusinessRequest extends Request
             'city.required' => '请选择城市',
             'area.required' => '请选择区/县',
             'school.required' => '请选择高校',
+            'address.required' => '请填写具体地址',
             'time_limit.required' => '请填写经营时间范围',
         ];
     }

@@ -14,7 +14,7 @@ class Business extends Base
     // 商家
     protected $table = 'business';
 
-    protected $fillable = ['id','admin_id','name','mobile','image','province','city','area','school','time_limit','status',
+    protected $fillable = ['id','admin_id','name','mobile','image','province','city','area','school','address','time_limit','status',
         'notice','number','score','salesman_id'];
 
 

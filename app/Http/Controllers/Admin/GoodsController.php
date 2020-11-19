@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\BoolEnum;
 use App\Enums\GoodsEnum;
 use App\Enums\ManagerTypeEnum;
 use App\Http\Requests\Admin\GoodsRequest;
@@ -114,6 +115,7 @@ class GoodsController extends BaseController
             'price' => $params['price'] ?? 0,
             'describe' => $params['describe'] ?? '',
             'sort' => $params['sort'] ?? 0,
+            'is_recommend' => $params['is_recommend'] ?? BoolEnum::NO,
             'status' => $params['status'] ?? GoodsEnum::ONSALE,
             'create_time' => time()
         ];
@@ -183,6 +185,7 @@ class GoodsController extends BaseController
             'price' => $params['price'] ?? 0,
             'describe' => $params['describe'] ?? '',
             'sort' => $params['sort'] ?? 0,
+            'is_recommend' => $params['is_recommend'] ?? BoolEnum::NO,
             'status' => $params['status'] ?? GoodsEnum::ONSALE,
             'update_time' => time()
         ];
