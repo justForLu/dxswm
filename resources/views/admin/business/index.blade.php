@@ -53,6 +53,7 @@
         <tr>
             <th>ID</th>
             <th>店家名称</th>
+            <th>分类</th>
             <th>关联管理员</th>
             <th>店铺手机号</th>
             <th>省份</th>
@@ -71,6 +72,7 @@
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->name}}</td>
+                <td>{{\App\Enums\CategoryEnum::getDesc($data->cat_id)}}</td>
                 <td>{{$data->admin_name}}</td>
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->province_name}}</td>

@@ -9,7 +9,7 @@ class Collect extends Base
     // 收藏
     protected $table = 'collect';
 
-    protected $fillable = ['id','user_id','goods_id'];
+    protected $fillable = ['id','user_id','business_id','goods_id'];
 
 
 

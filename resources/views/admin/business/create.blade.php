@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label"><span class="red">*</span>再次填写店家管理员密码</label>
+                            <label for="name" class="col-sm-3 control-label"><span class="red">*</span>再次输入店家管理员密码</label>
                             <div class="col-sm-8">
                                 <input type="password" name="re_password" class="form-control">
                             </div>
@@ -33,6 +33,12 @@
                             <label for="sort" class="col-sm-3 control-label"><span class="red">*</span>店家名称</label>
                             <div class="col-sm-8">
                                 <input type="text" name="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">店家分类</label>
+                            <div class="col-sm-8">
+                                {{\App\Enums\CategoryEnum::enumSelect(\App\Enums\CategoryEnum::FOOD,false,'cat_id')}}
                             </div>
                         </div>
                         <div class="form-group">

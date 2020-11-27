@@ -25,6 +25,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">店家分类</label>
+                            <div class="col-sm-8">
+                                {{\App\Enums\CategoryEnum::enumSelect($data->cat_id,false,'cat_id')}}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label"><span class="red">*</span>店家手机号</label>
                             <div class="col-sm-8">
                                 <input type="text" name="mobile" autocomplete="off" class="form-control" value="{{$data->mobile}}">
