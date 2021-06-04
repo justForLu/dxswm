@@ -21,6 +21,7 @@ class OrderController extends BaseController
     /**
      * 订单列表
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function orderList(Request $request)
     {
@@ -28,6 +29,7 @@ class OrderController extends BaseController
 
         $list = $this->order->getList($params);
 
+        return $this->ajaxSuccess($list,'OK');
     }
 
     /**
@@ -70,28 +72,46 @@ class OrderController extends BaseController
     /**
      * 订单支付
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function payOrder(Request $request)
     {
+        $params = $request->all();
+        $params['user_id'] = 1;
 
+        $result = $this->order->payOrder($params);
+
+        return $this->ajaxSuccess($result,'OK');
     }
 
     /**
      * 确认收货
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function confirmOrder(Request $request)
     {
+        $params = $request->all();
+        $params['user_id'] = 1;
 
+        $result = $this->order->confirmOrder($params);
+
+        return $this->ajaxSuccess($result,'OK');
     }
 
     /**
      * 订单评价
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function evaluateOrder(Request $request)
     {
+        $params = $request->all();
+        $params['user_id'] = 1;
 
+        $result = $this->order->evaluateOrder($params);
+
+        return $this->ajaxSuccess($result,'OK');
     }
 
 }

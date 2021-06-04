@@ -36,8 +36,8 @@ class BusinessRepository extends BaseRepository
         if(isset($params['name']) && !empty($params['name'])) {
             $where[] = ['name','LIKE','%'.$params['name'].'%'];
         }
-        if(isset($params['category_id']) && !empty($params['category_id'])) {
-            $where[] = ['category_id', $params['category_id']];
+        if(isset($params['cat_id']) && !empty($params['cat_id'])) {
+            $where[] = ['cat_id', $params['cat_id']];
         }
 
         $count = $model->where($where)->count();

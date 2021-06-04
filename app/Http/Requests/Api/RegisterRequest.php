@@ -1,10 +1,10 @@
 <?php
 
-namespace DummyNamespace;
+namespace App\Http\Requests\Api;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class DummyClass extends FormRequest
+class RegisterRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class DummyClass extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class DummyClass extends FormRequest
     public function rules()
     {
         return [
-            //
         ];
     }
+
+    /**
+     * @return array
+     */
+    public function messages()
+    {
+        return  [
+        ];
+    }
+
 }

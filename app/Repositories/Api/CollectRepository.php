@@ -11,4 +11,12 @@ class CollectRepository extends BaseRepository
         return 'App\Models\Common\Collect';
     }
 
+    /**
+     * 获取我收藏的店铺
+     * @param array $params
+     */
+    public function getList($params = [])
+    {
+
+    }
 }

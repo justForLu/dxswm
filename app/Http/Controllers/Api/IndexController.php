@@ -10,60 +10,23 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Common\School;
 use App\Repositories\AccountsRepository as Accounts;
-use App\Services\Wechat\ServerService as Server;
 use App\Repositories\Api\UserRepository;
 use App\Http\Controllers\Api\GoodsController as Goods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends BaseController
 {
 
     protected $goods;
 
-    public function __construct(UserRepository $userRepository,Request $request,Accounts $accounts,Server $server, Goods $goods)
+    public function __construct(UserRepository $userRepository,Request $request,Accounts $accounts, Goods $goods)
     {
         parent::__construct();
 
         $this->goods = $goods;
-
-//        if(isset($request->code)){
-//            // 如果经过授权
-//            $oauth = $server->getOauth($this->account,null);
-//            $userService = $server->getUser($this->account);
-//            $user = $userService->get($oauth->user()->getId());
-//
-//            $this->setUserAutoLogin($userRepository,$user,$this->account,true);
-//        }elseif($request->openId){
-//            // 如果带着用户信息
-//
-//            $userService = $server->getUser($this->account);
-//            $user = $userService->get($request->openId);
-//
-//            $this->setUserAutoLogin($userRepository,$user,$this->account,true);
-//        }else{
-//            $openId = $request->session()->get('openId');
-//
-//            if($request->mode == 'dev'){
-//                $openId = 'oOWprxIGg0zASPfmFGHAjQFkuJXo';
-//            }
-//            if($openId){
-//                $userService = $server->getUser($this->account);
-//                $user = $userService->get($openId);
-//
-//                $this->setUserAutoLogin($userRepository,$user,$this->account);
-//            }else{
-//                $this->intercept($request,$this->account,$server);
-//            }
-//        }
-//
-//        //完善信息
-//        $this->checkUserInfo();
-//
-//        // 获取JS API
-//        $js = $server->getJsApi($this->account);
-//        view()->share('js',$js);
 
     }
 

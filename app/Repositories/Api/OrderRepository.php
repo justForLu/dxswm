@@ -27,9 +27,22 @@ class OrderRepository extends BaseRepository
      * 获取订单列表（有分页）
      * @param array $params
      * @param string $field
+     * @return mixed
      */
     public function getList($params = [], $field = '*')
     {
+        if(!isset($params['user_id']) || empty($params['user_id'])){
+            return -1;
+        }
+
+        $where = [];
+        $where[] = ['user_id', $params['user_id']];
+        if(isset($params['status']) && !empty($params['status'])){
+            $where[] = ['status',$params['status']];
+        }
+
+
+
 
     }
 
@@ -274,10 +287,10 @@ class OrderRepository extends BaseRepository
 
     /**
      * 订单确认收货
-     * @param int $id
+     * @param array $params
      * @return mixed
      */
-    public function confirmOrder($id = 0)
+    public function confirmOrder($params = [])
     {
 
     }

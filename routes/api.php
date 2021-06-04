@@ -1,6 +1,6 @@
 <?php
 header('access-Control-Allow-Origin:*');
-header('Access-Control-Allow-Headers:Content-Type,Access-Token,Access-Control-Allow-Origin');
+header('Access-Control-Allow-Headers:Content-Type,Token,From,Access-Control-Allow-Origin');
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,7 @@ Route::get('home', function () {
 });
 
 
-Route::group(['prefix' => 'api', 'namespace' => 'Api'], function (){
+Route::group(['prefix' => 'api', 'namespace' => 'Api','middleware' => ['api.auth']], function (){
 
     Route::get('/index', 'IndexController@index');
     Route::get('/index/school', 'IndexController@school');
@@ -32,10 +32,14 @@ Route::group(['prefix' => 'api', 'namespace' => 'Api'], function (){
 
     Route::get('/business/get_list','BusinessController@getList');
 
-
     Route::get('/goods/get_list','GoodsController@getList');
 
-    Route::group(['middleware' => ['api.auth']], function(){
+    Route::any('/wechat/oauth_login','WechatLoginController@oauthLogin');
+    Route::any('/wechat/oauth_callback','WechatLoginController@oauthCallback');
+    Route::post('/login/app_login','LoginController@appLogin');
+
+
+    Route::group(['middleware' => ['api.check']], function(){
         Route::get('/business/get_info','BusinessController@getInfo');
 
         Route::get('/category/get_list','CategoryController@getList');
@@ -56,6 +60,8 @@ Route::group(['prefix' => 'api', 'namespace' => 'Api'], function (){
         Route::post('/address/save_address','AddressController@saveAddress');
         Route::get('/address/get_info','AddressController@getInfo');
         Route::post('/address/upd_address','AddressController@updAddress');
+
+        Route::POST('/user/get_user','UserController@getUser');
     });
 });
 

@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
         'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class,
         'admin.check' => \App\Http\Middleware\AdminCheckPermission::class,
         'admin.log' => \App\Http\Middleware\AdminWriteLog::class,
+        'api.check' => \App\Http\Middleware\ApiCheck::class,
         'api.auth' => \App\Http\Middleware\ApiAuthenticate::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
